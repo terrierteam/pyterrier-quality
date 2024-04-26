@@ -9,6 +9,8 @@ The following pre-trained QualT5 models are available:
 | Model ID | Base Model |
 |----------|------------|
 |[`pyterrier-quality/qt5-tiny`](https://huggingface.co/pyterrier-quality/qt5-tiny)|[`google/t5-efficient-tiny`](https://huggingface.co/google/t5-efficient-tiny)|
+|[`pyterrier-quality/qt5-small`](https://huggingface.co/pyterrier-quality/qt5-small)|[`t5-small`](https://huggingface.co/t5-small)|
+|[`pyterrier-quality/qt5-base`](https://huggingface.co/pyterrier-quality/qt5-base)|[`t5-base`](https://huggingface.co/t5-base)|
 
 You can load these models using:
 
