@@ -25,6 +25,8 @@ The following cached quality scores for the following datasets are also availabl
 |`qt5-tiny`|`msmarco-passage-v2`|[`pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache)|
 |`qt5-tiny`|`cord19`|[`pyterrier-quality/qt5-tiny.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.cache)|
 
+You can load a cache using:
+
 ```python
 from pyterrier_quality import ScoreCache
 cache = ScoreCache.from_url('hf:pyterrier-quality/qt5-tiny.msmarco-passage.cache') # or another Cache ID (note the hf: prefix)
