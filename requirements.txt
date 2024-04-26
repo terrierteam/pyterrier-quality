@@ -1,0 +1,6 @@
+python-terrier
+transformers
+npids
+more_itertools
+numpy
+torch

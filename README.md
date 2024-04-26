@@ -2,6 +2,16 @@
 
 Content quality estimation with PyTerrier.
 
+![Quality estimation pipeline](https://raw.githubusercontent.com/terrierteam/pyterrier-quality/main/imgs/qual-predict.png)
+
+![Filtering based on quality estimations](https://raw.githubusercontent.com/terrierteam/pyterrier-quality/main/imgs/qual-filter.png)
+
+## Installation
+
+```bash
+pip intall git+https://github.com/terrierteam/pyterrier-quality
+```
+
 ## Models & Artifacts
 
 The following pre-trained QualT5 models are available:
@@ -24,8 +34,12 @@ The following cached quality scores for the following datasets are also availabl
 | Model | Dataset | Cache ID |
 |-------|---------|----------|
 |`qt5-tiny`|`msmarco-passage`|[`pyterrier-quality/qt5-tiny.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.cache)|
-|`qt5-tiny`|`msmarco-passage-v2`|[`pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache)|
 |`qt5-tiny`|`cord19`|[`pyterrier-quality/qt5-tiny.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.cache)|
+|`qt5-tiny`|`msmarco-passage-v2`|[`pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache)|
+|`qt5-small`|`msmarco-passage`|[`pyterrier-quality/qt5-small.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-small.msmarco-passage.cache)|
+|`qt5-small`|`cord19`|[`pyterrier-quality/qt5-small.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-small.cord19.cache)|
+|`qt5-base`|`msmarco-passage`|[`pyterrier-quality/qt5-base.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-base.msmarco-passage.cache)|
+|`qt5-base`|`cord19`|[`pyterrier-quality/qt5-base.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-base.cord19.cache)|
 
 You can load a cache using:
 
