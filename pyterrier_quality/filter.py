@@ -1,7 +1,7 @@
 import pyterrier as pt
 
 
-class Pruner(pt.Transformer):
+class Filter(pt.Transformer):
     def __init__(self, min_quality_score: float):
         self.min_quality_score = min_quality_score
 
