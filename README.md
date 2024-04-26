@@ -2,9 +2,9 @@
 
 Content quality estimation with PyTerrier.
 
-![Quality estimation pipeline](https://raw.githubusercontent.com/terrierteam/pyterrier-quality/main/imgs/qual-predict.png)
+![Quality estimation pipeline](https://github.com/terrierteam/pyterrier-quality/blob/main/img/qual-predict.png)
 
-![Filtering based on quality estimations](https://raw.githubusercontent.com/terrierteam/pyterrier-quality/main/imgs/qual-filter.png)
+![Filtering based on quality estimations](https://github.com/terrierteam/pyterrier-quality/blob/main/img/qual-filter.png)
 
 ## Installation
 
