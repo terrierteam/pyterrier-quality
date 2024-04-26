@@ -10,13 +10,25 @@ The following pre-trained QualT5 models are available:
 |----------|------------|
 |[`pyterrier-quality/qt5-tiny`](https://huggingface.co/pyterrier-quality/qt5-tiny)|[`google/t5-efficient-tiny`](https://huggingface.co/google/t5-efficient-tiny)|
 
+You can load these models using:
+
+```python
+from pyterrier_quality import QualT5
+model = QualT5('pyterrier-quality/qt5-tiny') # or another Model ID
+```
+
 The following cached quality scores for the following datasets are also available:
 
-| Model | Dataset | Cache |
-|-------|---------|-------|
+| Model | Dataset | Cache ID |
+|-------|---------|----------|
 |`qt5-tiny`|`msmarco-passage`|[`pyterrier-quality/qt5-tiny.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.cache)|
 |`qt5-tiny`|`msmarco-passage-v2`|[`pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache)|
 |`qt5-tiny`|`cord19`|[`pyterrier-quality/qt5-tiny.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.cache)|
+
+```python
+from pyterrier_quality import ScoreCache
+cache = ScoreCache.from_url('hf:pyterrier-quality/qt5-tiny.msmarco-passage.cache') # or another Cache ID (note the hf: prefix)
+```
 
 # Citation
 
