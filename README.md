@@ -51,8 +51,8 @@ The following cached quality scores for the following datasets are also availabl
 You can load a cache using:
 
 ```python
-from pyterrier_quality import ScoreCache
-cache = ScoreCache.from_url('hf:pyterrier-quality/qt5-tiny.msmarco-passage.cache') # or another Cache ID (note the hf: prefix)
+from pyterrier_quality import QualCache
+cache = QualCache.from_url('hf:pyterrier-quality/qt5-tiny.msmarco-passage.cache') # or another Cache ID (note the hf: prefix)
 ```
 
 # Citation

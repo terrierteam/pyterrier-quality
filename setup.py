@@ -6,7 +6,7 @@ def get_version(rel_path):
     for line in open(rel_path):
         if line.startswith('__version__'):
             delim = '"' if '"' in line else "'"
-            return line.split(delim)[1] + suffix
+            return line.split(delim)[1]
     else:
         raise RuntimeError("Unable to find version string.")
 
@@ -28,7 +28,7 @@ setup(
     author="Sean MacAvaney",
     author_email='sean.macavaney@glasgow.ac.uk',
     description="Content Quality Estimation for PyTerrier",
-    long_description=long_description,
+    long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     url="https://github.com/terrierteam/pyterrier-quality",
     packages=find_packages(),
@@ -36,7 +36,7 @@ setup(
     python_requires='>=3.10',
     entry_points={
         'pyterrier.artifact': [
-            'quality_score_cache.numpy = pyterrier_quality:ScoreCache',
+            'quality_score_cache.numpy = pyterrier_quality:QualCache',
         ],
     },
 )

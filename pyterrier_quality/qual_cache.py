@@ -8,7 +8,7 @@ from npids import Lookup
 from pyterrier_quality import Artifact
 
 
-class ScoreCache(Artifact, pt.Indexer):
+class QualCache(Artifact, pt.Indexer):
   def __init__(self, path):
     super().__init__(path)
     self._quality_scores = None
@@ -18,10 +18,10 @@ class ScoreCache(Artifact, pt.Indexer):
     return self.indexer().index(it)
 
   def indexer(self):
-    return ScoreCacheIndexer(self)
+    return QualCacheIndexer(self)
 
   def seq_scorer(self):
-    return ScoreCacheSeqScorer(self)
+    return QualCacheSeqScorer(self)
 
   def quality_scores(self):
     if self._quality_scores is None:
@@ -36,9 +36,16 @@ class ScoreCache(Artifact, pt.Indexer):
   def quantile(self, p):
     return np.quantile(self.quality_scores(), p)
 
+  def get_corpus_iter(self):
+    for docno, quality in zip(self.docnos(), self.quality_scores()):
+      yield {'docno': docno, 'quality': quality}
 
-class ScoreCacheIndexer(pt.Indexer):
-  def __init__(self, cache: ScoreCache):
+  def __iter__(self):
+    return self.get_corpus_iter()
+
+
+class QualCacheIndexer(pt.Indexer):
+  def __init__(self, cache: QualCache):
     self.cache = cache
 
   def index(self, it):
@@ -65,8 +72,8 @@ class ScoreCacheIndexer(pt.Indexer):
         }, fout)
 
 
-class ScoreCacheSeqScorer(pt.Transformer):
-  def __init__(self, cache: ScoreCache):
+class QualCacheSeqScorer(pt.Transformer):
+  def __init__(self, cache: QualCache):
     self.cache = cache
     self.idx = 0
 
