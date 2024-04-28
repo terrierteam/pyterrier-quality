@@ -3,6 +3,7 @@
 try:
     from pyterrier import Artifact
 except:
+    import tempfile
     import contextlib
     import json
     import os
@@ -138,6 +139,29 @@ except:
 
             return cls.load(path)
 
+        def to_hf(self, repo, branch='main'):
+            from huggingface_hub import create_repo, create_branch, upload_folder
+            from huggingface_hub.utils import HfHubHTTPError
+            with tempfile.TemporaryDirectory() as d:
+                build_package(self.path, os.path.join(d, 'artifact.tar.lz4'))
+                try:
+                    create_repo(repo, repo_type='dataset')
+                except HfHubHTTPError as e:
+                    if e.server_message != 'You already created this dataset repo':
+                        raise
+                try:
+                    create_branch(repo, repo_type='dataset', branch=branch)
+                except HfHubHTTPError as e:
+                    if not e.server_message.startswith('Reference already exists:'):
+                        raise
+                upload_folder(
+                    repo_id=repo,
+                    folder_path=d,
+                    repo_type='dataset',
+                    revision=branch,
+                )
+
+
     def load_metadata(path: str) -> Dict:
         """
         Load the metadata file for the artifact at the specified path.
@@ -234,7 +258,7 @@ except:
                     tar_record = tarfile.TarInfo(rel_root)
                     tar_record.type = tarfile.DIRTYPE
                     tarout.addfile(tar_record)
-                for file in sorted(files):
+                for file in sorted(files, key=lambda x: (x != 'pt_meta.json', x)):
                     lz4_fout.flush() # flush before each file, allowing seeking directly to this file within the archive
                     file_full_path = os.path.join(root, file)
                     file_rel_path = os.path.join(rel_root, file) if rel_root != '.' else file
