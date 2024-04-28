@@ -33,13 +33,20 @@ The following cached quality scores for the following datasets are also availabl
 
 | Model | Dataset | Cache ID |
 |-------|---------|----------|
-|`qt5-tiny`|`msmarco-passage`|[`pyterrier-quality/qt5-tiny.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.cache)|
-|`qt5-tiny`|`cord19`|[`pyterrier-quality/qt5-tiny.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.cache)|
-|`qt5-tiny`|`msmarco-passage-v2`|[`pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache)|
-|`qt5-small`|`msmarco-passage`|[`pyterrier-quality/qt5-small.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-small.msmarco-passage.cache)|
-|`qt5-small`|`cord19`|[`pyterrier-quality/qt5-small.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-small.cord19.cache)|
 |`qt5-base`|`msmarco-passage`|[`pyterrier-quality/qt5-base.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-base.msmarco-passage.cache)|
-|`qt5-base`|`cord19`|[`pyterrier-quality/qt5-base.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-base.cord19.cache)|
+|`qt5-small`|`msmarco-passage`|[`pyterrier-quality/qt5-small.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-small.msmarco-passage.cache)|
+|`qt5-tiny`|`msmarco-passage`|[`pyterrier-quality/qt5-tiny.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.cache)|
+|*(random)*|`msmarco-passage`|[`pyterrier-quality/rand.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage.cache)|
+|ITN|`msmarco-passage`|[`pyterrier-quality/itn.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/itn.msmarco-passage.cache)|
+|CDD|`msmarco-passage`|[`pyterrier-quality/cdd.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/cdd.msmarco-passage.cache)|
+|EPIC (Qual.)|`msmarco-passage`|[`pyterrier-quality/epic.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/epic.msmarco-passage.cache)|
+|TAS-B (Mag.)|`msmarco-passage`|[`pyterrier-quality/tasb-mag.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/tasb-mag.msmarco-passage.cache)|
+|t5-base (Ppl.)|`msmarco-passage`|[`pyterrier-quality/t5-ppl.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/t5-ppl.msmarco-passage.cache)|
+|gpt2 (Ppl.)|`msmarco-passage`|[`pyterrier-quality/gpt2-ppl.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/gpt2-ppl.msmarco-passage.cache)|
+|`qt5-tiny`|`cord19`|[`pyterrier-quality/qt5-tiny.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.cache)|
+|*(random)*|`cord19`|[`pyterrier-quality/rand.cord19.cache`](https://huggingface.co/datasets/pyterrier-quality/rand.cord19.cache)|
+|`qt5-tiny`|`msmarco-passage-v2`|[`pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.cache)|
+|*(random)*|`msmarco-passage-v2`|[`pyterrier-quality/rand.msmarco-passage-v2.cache`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage-v2.cache)|
 
 You can load a cache using:
 
