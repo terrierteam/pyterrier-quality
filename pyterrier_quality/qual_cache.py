@@ -25,7 +25,7 @@ class QualCache(Artifact, pt.Indexer):
 
   def quality_scores(self):
     if self._quality_scores is None:
-      self._quality_scores = np.memmap(os.path.join(self.path, 'quality.f8'), dtype='f8', mode='r')
+      self._quality_scores = np.memmap(os.path.join(self.path, 'quality.f4'), dtype='f4', mode='r')
     return self._quality_scores
 
   def docnos(self):
@@ -60,11 +60,11 @@ class QualCacheIndexer(pt.Indexer):
 
     with pyterrier_quality.io.finalized_directory(self.cache.path) as d:
       count = 0
-      with open(os.path.join(d, 'quality.f8'), 'wb') as fout, \
+      with open(os.path.join(d, 'quality.f4'), 'wb') as fout, \
            Lookup.builder(os.path.join(d, 'docno.npids')) as docnos:
         for batch in more_itertools.chunked(it, 1000):
           batch = list(batch)
-          quality_scores = np.array([d['quality'] for d in batch], dtype='f8')
+          quality_scores = np.array([d['quality'] for d in batch], dtype='f4')
           for record in batch:
             docnos.add(record['docno'])
           fout.write(quality_scores.tobytes())
