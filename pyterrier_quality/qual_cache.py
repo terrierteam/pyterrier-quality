@@ -36,6 +36,12 @@ class QualCache(Artifact, pt.Indexer):
   def quantile(self, p):
     return np.quantile(self.quality_scores(), p)
 
+  def iter_quantiles(self):
+    c = len(self.quality_scores())
+    quantiles = np.argsort(np.argsort(self.quality_scores()))
+    for docno, idx in zip(self.docnos(), quantiles):
+      yield {'docno': docno, 'quality': idx/c}
+
   def get_corpus_iter(self):
     for docno, quality in zip(self.docnos(), self.quality_scores()):
       yield {'docno': docno, 'quality': quality}

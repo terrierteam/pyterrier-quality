@@ -55,6 +55,14 @@ from pyterrier_quality import QualCache
 cache = QualCache.from_url('hf:pyterrier-quality/qt5-tiny.msmarco-passage.cache') # or another Cache ID (note the hf: prefix)
 ```
 
+For convenience, specifying the `@quantiles` branch on any of the caches provides a version of the quality scores
+converted into the corresponding quantile score. For example:
+
+```python
+from pyterrier_quality import QualCache
+cache = QualCache.from_url('hf:pyterrier-quality/qt5-tiny.msmarco-passage.cache@quantiles')
+```
+
 # Citation
 
 This repository is for the paper **Neural Passage Quality Estimation for Static Pruning** at SIGIR 2024.
