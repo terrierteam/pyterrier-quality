@@ -31,8 +31,8 @@ model = QualT5('pyterrier-quality/qt5-tiny') # or another Model ID
 
 The following cached quality scores for the following datasets are also available:
 
-| Model | Dataset | Cache ID |
-|-------|---------|----------|
+| Quality Model | Dataset | Cache ID |
+|---------------|---------|----------|
 |`qt5-base`|`msmarco-passage`|[`pyterrier-quality/qt5-base.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-base.msmarco-passage.cache)|
 |`qt5-small`|`msmarco-passage`|[`pyterrier-quality/qt5-small.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-small.msmarco-passage.cache)|
 |`qt5-tiny`|`msmarco-passage`|[`pyterrier-quality/qt5-tiny.msmarco-passage.cache`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.cache)|
@@ -62,6 +62,18 @@ converted into the corresponding quantile score. For example:
 from pyterrier_quality import QualCache
 cache = QualCache.from_url('hf:pyterrier-quality/qt5-tiny.msmarco-passage.cache@quantiles')
 ```
+
+The following indexes are available, based on the quality scores above:
+
+| Quality Model | Dataset | PISA Index ID (BM25) | PISA Index ID (SPLADE (lg)) |
+|---------------|---------|----------------------|-----------------------------|
+|`qt5-tiny`|`msmarco-passage`|[`.../qt5-tiny.msmarco-passage.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.pisa)|[`.../qt5-tiny.msmarco-passage.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.splade-lg.pisa)|
+|*(random)*|`msmarco-passage`|[`.../rand.msmarco-passage.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage.pisa)|
+|`qt5-tiny`|`cord19`|[`.../qt5-tiny.cord19.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.pisa)|[`.../qt5-tiny.cord19.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.splade-lg.pisa)|
+|*(random)*|`cord19`|[`.../rand.cord19.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.cord19.pisa)|
+|`qt5-tiny`|`msmarco-passage-v2`|[`.../qt5-tiny.msmarco-passage-v2.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.pisa)|[`.../qt5-tiny.msmarco-passage-v2.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.splade-lg.pisa)|
+|*(random)*|`msmarco-passage-v2`|[`.../rand.msmarco-passage-v2.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage-v2.pisa)|
+
 
 # Citation
 
