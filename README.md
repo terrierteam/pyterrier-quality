@@ -65,8 +65,8 @@ cache = QualCache.from_url('hf:pyterrier-quality/qt5-tiny.msmarco-passage.cache@
 
 The following indexes are available, based on the quality scores above:
 
-| Quality Model | Dataset | PISA Index ID (BM25) | PISA Index ID (SPLADE (lg)) | FLEX (TAS-B) |
-|---------------|---------|----------------------|-----------------------------|--------------|
+| Quality Model | Dataset | PISA (BM25) | PISA (SPLADE (lg)) | FLEX (TAS-B) |
+|---------------|---------|-------------|--------------------|--------------|
 |`qt5-tiny`|`msmarco-passage`|[`qt5-tiny.msmarco-passage.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.pisa)|[`qt5-tiny.msmarco-passage.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.splade-lg.pisa)|
 |*(random)*|`msmarco-passage`|[`rand.msmarco-passage.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage.pisa)|
 |`qt5-tiny`|`cord19`|[`qt5-tiny.cord19.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.pisa)|[`qt5-tiny.cord19.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.splade-lg.pisa)|
