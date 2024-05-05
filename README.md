@@ -67,12 +67,12 @@ The following indexes are available, based on the quality scores above:
 
 | Quality Model | Dataset | PISA Index ID (BM25) | PISA Index ID (SPLADE (lg)) |
 |---------------|---------|----------------------|-----------------------------|
-|`qt5-tiny`|`msmarco-passage`|[`.../qt5-tiny.msmarco-passage.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.pisa)|[`.../qt5-tiny.msmarco-passage.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.splade-lg.pisa)|
-|*(random)*|`msmarco-passage`|[`.../rand.msmarco-passage.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage.pisa)|
-|`qt5-tiny`|`cord19`|[`.../qt5-tiny.cord19.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.pisa)|[`.../qt5-tiny.cord19.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.splade-lg.pisa)|
-|*(random)*|`cord19`|[`.../rand.cord19.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.cord19.pisa)|
-|`qt5-tiny`|`msmarco-passage-v2`|[`.../qt5-tiny.msmarco-passage-v2.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.pisa)|[`.../qt5-tiny.msmarco-passage-v2.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.splade-lg.pisa)|
-|*(random)*|`msmarco-passage-v2`|[`.../rand.msmarco-passage-v2.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage-v2.pisa)|
+|`qt5-tiny`|`msmarco-passage`|[`qt5-tiny.msmarco-passage.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.pisa)|[`qt5-tiny.msmarco-passage.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage.splade-lg.pisa)|
+|*(random)*|`msmarco-passage`|[`rand.msmarco-passage.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage.pisa)|
+|`qt5-tiny`|`cord19`|[`qt5-tiny.cord19.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.pisa)|[`qt5-tiny.cord19.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.cord19.splade-lg.pisa)|
+|*(random)*|`cord19`|[`rand.cord19.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.cord19.pisa)|
+|`qt5-tiny`|`msmarco-passage-v2`|[`qt5-tiny.msmarco-passage-v2.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.pisa)|[`qt5-tiny.msmarco-passage-v2.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.splade-lg.pisa)|
+|*(random)*|`msmarco-passage-v2`|[`rand.msmarco-passage-v2.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage-v2.pisa)|
 
 
 # Citation
