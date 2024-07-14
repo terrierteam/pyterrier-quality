@@ -76,7 +76,7 @@ The following indexes are available, based on the quality scores above:
 
 # Using a Quality Filter in an Indexing Pipeline
 
-QualT5 and Filter classes can be used in a PyTerrier indexing pipeline, allwowing use with [Terrier](https://pyterrier.readthedocs.io/en/latest/terrier-indexing.html#iterdictindexer), [Dense](https://github.com/terrierteam/pyterrier_dr), [ColBERT](https://github.com/terrierteam/pyterrier_colbert), or [SPLADE](https://github.com/cmacdonald/pyt_splade) indexers, for example: 
+QualT5 and Filter classes can be used in a PyTerrier indexing pipeline, allwowing use with [Terrier](https://pyterrier.readthedocs.io/en/latest/terrier-indexing.html#iterdictindexer), [PISA](https://github.com/terrierteam/pyterrier_pisa), [Dense](https://github.com/terrierteam/pyterrier_dr), [ColBERT](https://github.com/terrierteam/pyterrier_colbert), or [SPLADE](https://github.com/cmacdonald/pyt_splade) indexers, for example: 
 
 ```python
 from pyterrier_quality import QualT5, Filter
