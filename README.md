@@ -74,6 +74,17 @@ The following indexes are available, based on the quality scores above:
 |`qt5-tiny`|`msmarco-passage-v2`|[`qt5-tiny.msmarco-passage-v2.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.pisa)|[`qt5-tiny.msmarco-passage-v2.splade-lg.pisa`](https://huggingface.co/datasets/pyterrier-quality/qt5-tiny.msmarco-passage-v2.splade-lg.pisa)|
 |*(random)*|`msmarco-passage-v2`|[`rand.msmarco-passage-v2.pisa`](https://huggingface.co/datasets/pyterrier-quality/rand.msmarco-passage-v2.pisa)|
 
+# Using a Quality Filter in an Indexing Pipeline
+
+QualT5 and Filter classes can be used in a PyTerrier indexing pipeline, allwowing use with [Terrier](https://pyterrier.readthedocs.io/en/latest/terrier-indexing.html#iterdictindexer), [Dense](https://github.com/terrierteam/pyterrier_dr), [ColBERT](https://github.com/terrierteam/pyterrier_colbert), or [SPLADE](https://github.com/cmacdonald/pyt_splade) indexers, for example: 
+
+```python
+from pyterrier_quality import QualT5, Filter
+qmodel = QualT5('pyterrier-quality/qt5-tiny')
+
+pipe = qmodel >> Filter(0.8) >> splade_indexer
+pipe.index(corpus)
+```
 
 # Citation
 
