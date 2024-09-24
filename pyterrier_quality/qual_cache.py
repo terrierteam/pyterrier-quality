@@ -5,10 +5,9 @@ import more_itertools
 import pyterrier as pt
 import pyterrier_quality
 from npids import Lookup
-from pyterrier_quality import Artifact
+import pyterrier_alpha as pta
 
-
-class QualCache(Artifact, pt.Indexer):
+class QualCache(pta.Artifact, pt.Indexer):
   def __init__(self, path):
     super().__init__(path)
     self._quality_scores = None
@@ -58,7 +57,7 @@ class QualCacheIndexer(pt.Indexer):
     if os.path.exists(self.cache.path):
       raise FileExistsError('Cache directory already exists')
 
-    with pyterrier_quality.io.finalized_directory(self.cache.path) as d:
+    with pta.io.finalized_directory(self.cache.path) as d:
       count = 0
       with open(os.path.join(d, 'quality.f4'), 'wb') as fout, \
            Lookup.builder(os.path.join(d, 'docno.npids')) as docnos:
