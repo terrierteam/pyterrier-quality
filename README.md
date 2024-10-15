@@ -9,7 +9,7 @@ Content quality estimation with PyTerrier.
 ## Installation
 
 ```bash
-pip intall git+https://github.com/terrierteam/pyterrier-quality
+pip install git+https://github.com/terrierteam/pyterrier-quality
 ```
 
 ## Models & Artifacts
