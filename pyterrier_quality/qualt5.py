@@ -18,10 +18,11 @@ class QualT5(pt.Transformer):
         self.model = T5ForConditionalGeneration.from_pretrained(model)
         self.model.to(self.device)
         self.model.eval()
+        targets = ['true', 'false'] if not hasattr(self.model.config, 'targets') else self.model.config.targets
         # replace the lm_head with a version that only inclues the "true" and "false" tokens to save compute
         self.model.lm_head.weight = torch.nn.Parameter(self.model.lm_head.weight[[
-            self.tokenizer.encode('true')[0],
-            self.tokenizer.encode('false')[0],
+            self.tokenizer.encode(targets[0])[0],
+            self.tokenizer.encode(targets[1])[0],
         ]])
         self.batch_size = batch_size
         self.verbose = verbose
