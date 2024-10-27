@@ -7,4 +7,4 @@ class Filter(pt.Transformer):
 
     def transform(self, inp):
         assert 'quality' in inp
-        return inp[inp['quality'] >= min_quality_score]
+        return inp[inp['quality'] >= self.min_quality_score]
