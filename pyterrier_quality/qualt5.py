@@ -2,7 +2,7 @@ import itertools
 import pyterrier as pt
 import torch
 from torch.nn import functional as F
-from transformers import T5Config, T5Tokenizer, T5ForConditionalGeneration
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 import pyterrier as pt
 
@@ -14,8 +14,8 @@ class QualT5(pt.Transformer):
                  batch_size=100,
                  verbose=False):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.tokenizer = T5Tokenizer.from_pretrained(model, fast=True)
-        self.model = T5ForConditionalGeneration.from_pretrained(model)
+        self.tokenizer = AutoTokenizer.from_pretrained(model, fast=True)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(model)
         self.model.to(self.device)
         self.model.eval()
         targets = ['true', 'false'] if not hasattr(self.model.config, 'targets') else self.model.config.targets
