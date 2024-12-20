@@ -12,6 +12,8 @@ class QualT5(pt.Transformer):
                  model='pyterrier-quality/qt5-tiny',
                  *,
                  batch_size=100,
+                 max_len=512,
+                 prompt='Document: {} Relevant:',
                  verbose=False):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.tokenizer = AutoTokenizer.from_pretrained(model, fast=True)
@@ -26,6 +28,8 @@ class QualT5(pt.Transformer):
         ]])
         self.batch_size = batch_size
         self.verbose = verbose
+        self.max_len = max_len
+        self.prompt = prompt
 
     def transform(self, inp):
         assert 'text' in inp.columns
@@ -44,7 +48,7 @@ class QualT5(pt.Transformer):
 
         for start_idx in it:
             rng = slice(start_idx, start_idx + self.batch_size)
-            enc = self.tokenizer.batch_encode_plus([f'Document: {d} Relevant:' for d in texts[rng]], return_tensors='pt', padding='longest', max_length=512, truncation=True)
+            enc = self.tokenizer.batch_encode_plus([self.prompt.format(d) for d in texts[rng]], return_tensors='pt', padding='longest', max_length=self.max_len, truncation=True)
             enc = {k: v.to(self.device) for k, v in enc.items()}
             enc['decoder_input_ids'] = dec_ids[:len(texts[rng])]
             if scores:
