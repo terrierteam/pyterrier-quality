@@ -89,7 +89,7 @@ class QualCacheScorer(pt.Transformer):
 
   def transform(self, inp):
     pta.validate.columns(inp, includes=['docno'])
-    docids = self.cache.docnos().inv[list(self.inp['docno'])]
+    docids = self.cache.docnos().inv[list(inp['docno'])]
     quality_scores = self.cache.quality_scores()[docids]
     return inp.assign(quality=quality_scores)
 
