@@ -16,11 +16,17 @@ class QualCache(pta.Artifact, pt.Indexer):
   def index(self, it):
     return self.indexer().index(it)
 
+  def transform(self, inp):
+    return self.scorer()(inp)
+
   def indexer(self):
     return QualCacheIndexer(self)
 
   def seq_scorer(self):
     return QualCacheSeqScorer(self)
+
+  def scorer(self):
+    return QualCacheScorer(self)
 
   def quality_scores(self):
     if self._quality_scores is None:
@@ -76,6 +82,16 @@ class QualCacheIndexer(pt.Indexer):
           'count': count,
         }, fout)
 
+
+class QualCacheScorer(pt.Transformer):
+  def __init__(self, cache: QualCache):
+    self.cache = cache
+
+  def transform(self, inp):
+    pta.validate.columns(inp, includes=['docno'])
+    docids = self.cache.docnos().inv[list(self.inp['docno'])]
+    quality_scores = self.cache.quality_scores()[docids]
+    return inp.assign(quality=quality_scores)
 
 class QualCacheSeqScorer(pt.Transformer):
   def __init__(self, cache: QualCache):
