@@ -5,6 +5,3 @@ npids>=0.0.5
 more_itertools
 numpy
 torch
-onnx
-onnxruntime
-platformdirs
