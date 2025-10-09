@@ -2,41 +2,29 @@ import onnx
 import onnxruntime as ort
 from pathlib import Path
 from platformdirs import user_cache_dir
-from pyterrier_quality import QualT5
-import torch
-from torch import nn
 import warnings
 
 
-class T5Wrapper(nn.Module):
-    """
-    Wrapper class for a T5 model to ensure compatibility with ONNX.
-    """
-    def __init__(self, model):
-        super().__init__()
-        self.model = model
-
-    def forward(self, input_ids, attention_mask, decoder_input_ids):
-        output = self.model(
-            input_ids=input_ids,
-            attention_mask=attention_mask,
-            decoder_input_ids=decoder_input_ids
-        )
-        return output.logits
-
-
-def load_onnx_model(model: str = 'pyterrier-quality/qt5-tiny',
-                    onnx_file: Path = None):
+def load_onnx_model(onnx_file: Path = None,
+                    model: str = 'pyterrier-quality/qt5-tiny',
+                    sess_options: ort.SessionOptions = None):
+    sess_options = sess_options or ort.SessionOptions()
     if onnx_file is None:
         onnx_file = create_onnx_file(model=model)
+    if not onnx_file.is_file():
+        export_onnx_model(model=model, onnx_file=onnx_file)
 
     onnx_model = onnx.load(onnx_file)
     onnx.checker.check_model(onnx_model)
-    return ort.InferenceSession(onnx_file)
+    return ort.InferenceSession(onnx_file, sess_options=sess_options)
 
 
 def export_onnx_model(model: str = 'pyterrier-quality/qt5-tiny',
                       onnx_file: Path = None):
+    from pyterrier_quality import QualT5
+    from pyterrier_quality.onnx.t5_wrapper import T5Wrapper
+    import torch
+
     if onnx_file is None:
         onnx_file = create_onnx_file(model=model)
 

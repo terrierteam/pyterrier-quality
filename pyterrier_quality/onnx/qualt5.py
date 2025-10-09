@@ -1,11 +1,12 @@
 import itertools
 import numpy as np
+import onnxruntime as ort
 import pandas as pd
 from pathlib import Path
 from tqdm.auto import tqdm
 from transformers import AutoTokenizer, AutoConfig
 
-from pyterrier_quality.onnx_utils import create_onnx_file, export_onnx_model, load_onnx_model
+from pyterrier_quality.onnx.utils import load_onnx_model
 
 
 class ONNXQualT5:
@@ -16,17 +17,14 @@ class ONNXQualT5:
                  max_len: int = 512,
                  prompt: str = "Document: {} Relevant:",
                  verbose: bool = False,
+                 sess_options: ort.SessionOptions = None,
                  ):
         self.model_name = model
         self.tokenizer = AutoTokenizer.from_pretrained(model, fast=True)
         self.config = AutoConfig.from_pretrained(model)
 
-        if onnx_file is None:
-            onnx_file = create_onnx_file(model=model)
-        if not onnx_file.exists():
-            export_onnx_model(model=model, onnx_file=onnx_file)
-
-        self.ort_sess = load_onnx_model(model=model, onnx_file=onnx_file)
+        sess_options = sess_options or ort.SessionOptions()
+        self.ort_sess = load_onnx_model(model=model, onnx_file=onnx_file, sess_options=sess_options)
 
         self.batch_size = batch_size
         self.verbose = verbose
