@@ -30,6 +30,7 @@ class QualT5(pt.Transformer):
         self.verbose = verbose
         self.max_len = max_len
         self.prompt = prompt
+        self.model_name = "qualt5"
 
     def transform(self, inp):
         assert 'text' in inp.columns
