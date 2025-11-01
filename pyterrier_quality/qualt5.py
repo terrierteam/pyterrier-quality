@@ -44,7 +44,7 @@ class QualT5(pt.Transformer):
             device=self.device,
         )
         if self.verbose:
-            it = pt.tqdm(it, desc=self.model_name, unit='batches')
+            it = pt.tqdm(it, desc="QualT5", unit='batches')
 
         for start_idx in it:
             rng = slice(start_idx, start_idx + self.batch_size)
