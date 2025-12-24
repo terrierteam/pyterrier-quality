@@ -1,5 +1,6 @@
 import itertools
 import pyterrier as pt
+import pyterrier_alpha as pta
 import torch
 from torch.nn import functional as F
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
@@ -32,7 +33,7 @@ class QualT5(pt.Transformer):
         self.prompt = prompt
 
     def transform(self, inp):
-        assert 'text' in inp.columns
+        pta.validate.document_frame(inp, extra_columns=['text'])
         texts = inp['text'].to_list()
 
         scores = []

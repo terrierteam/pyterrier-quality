@@ -99,6 +99,7 @@ class QualCacheSeqScorer(pt.Transformer):
     self.idx = 0
 
   def transform(self, inp):
+    pta.validate.columns(inp, includes=['docno'])
     assert inp['docno'][0] == self.cache.docnos().fwd[self.idx], "detected misaligned docno when applying scores"
     quality_scores = self.cache.quality_scores()[self.idx:self.idx+len(inp)]
     self.idx += len(inp)
