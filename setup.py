@@ -33,6 +33,9 @@ setup(
     url="https://github.com/terrierteam/pyterrier-quality",
     packages=find_packages(),
     install_requires=requirements,
+    extras_require={
+        "onnx": ["onnx", "onnxruntime", "platformdirs"]
+    },
     python_requires='>=3.10',
     entry_points={
         'pyterrier.artifact': [
